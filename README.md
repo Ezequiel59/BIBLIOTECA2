@@ -2,25 +2,37 @@
 
 Aplicación web Java con JSP y Bootstrap para administrar los libros, usuarios y préstamos de una biblioteca.
 
+## Tecnologías
+
+- Java 23
+- JSP 3.1 y Jakarta Servlet 6.0
+- Apache Tomcat 10.1.61 integrado
+- Bootstrap 5.3.3
+- Maven Wrapper para compilar y ejecutar
+
 ## Inicio
 
-El proyecto requiere JDK 23 y Apache Tomcat 10.1.61 (Jakarta Servlet 6.0 / JSP 3.1).
+Usa un JDK 23 para ejecutar la aplicación.
 
-### Ejecutar directamente desde IntelliJ IDEA
+### Desde Visual Studio Code
 
 1. Abre `src\main\java\com\app\biblioteca2\BibliotecaWebApplication.java`.
-2. Presiona **Run** en el método `main`.
+2. Presiona **Run** sobre el método `main`. Para ejecutar Java desde VS Code, instala la extensión **Extension Pack for Java**.
 3. Abre `http://localhost:8080/`.
 
-También se puede iniciar desde la terminal con `.\mvnw.cmd compile exec:java`. El servidor integrado usa el puerto 8080; para cambiarlo, configura `-Dserver.port=8081`.
+También puedes iniciar la aplicación desde PowerShell, en la carpeta del proyecto:
 
-### Desplegar en Tomcat por separado
+```powershell
+.\mvnw.cmd compile exec:java
+```
 
-1. Construye el WAR con `.\mvnw.cmd clean test package`.
-2. Copia `target\BIBLIOTECA2-1.0-SNAPSHOT.war` al directorio `webapps` de Tomcat.
-3. Abre `http://localhost:8080/BIBLIOTECA2-1.0-SNAPSHOT/`.
+Cuando la terminal indique que Biblioteca UFG está disponible, abre `http://localhost:8080/`. Detén el servidor con **Stop** en VS Code o `Ctrl+C` en la terminal.
 
-Tomcat utiliza `data` relativo al directorio de trabajo como almacenamiento predeterminado. Para elegir una ubicación persistente, define la propiedad JVM `-Dbiblioteca.data.dir=C:\ruta\de\datos`.
+El servidor integrado usa el puerto 8080. Para elegir otro puerto, ejecuta `.\mvnw.cmd -Dserver.port=8081 compile exec:java` y abre `http://localhost:8081/`.
+
+Para generar el WAR y las pruebas antes de desplegar en un servidor externo, ejecuta `.\mvnw.cmd clean test package`.
+
+La aplicación guarda sus datos en la carpeta `data` del directorio de trabajo. Para elegir otra ubicación, configura la propiedad JVM `-Dbiblioteca.data.dir=C:\ruta\de\datos`.
 
 Las credenciales se guardan en texto plano en `data/cuentas.json`, tal como se solicitó. La primera ejecución crea estas cuentas:
 
