@@ -17,7 +17,7 @@ Usa un JDK 23 para ejecutar la aplicación.
 ### Desde Visual Studio Code
 
 1. Abre `src\main\java\com\app\biblioteca2\BibliotecaWebApplication.java`.
-2. Presiona **Run** sobre el método `main`. Para ejecutar Java desde VS Code, instala la extensión **Extension Pack for Java**.
+2. Presiona **Run** sobre el método `BibliotecaWebApplication`. Para ejecutar Java desde VS Code, instala la extensión **Extension Pack for Java**.
 3. Abre `http://localhost:8080/`.
 
 También puedes iniciar la aplicación desde PowerShell, en la carpeta del proyecto:
